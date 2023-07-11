@@ -13,6 +13,7 @@ So I decided to write my own "chart" library.
 ```
 
 ### Create a `<div>` Element with the `id="myChart"`:
+This is gonna be your canvas.
 
 ```html
 <div id="myChart"></div>
