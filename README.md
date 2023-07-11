@@ -1,15 +1,18 @@
 //Start by adding the Script in the <head> Element:
 
+```html
 <script src="DivDraw/divdraw.js"></script>
+```
 
+//Create a `<div>` Element with the `id="myChart"`:
 
-//Create a <div> Element with the id="myChart":
-
+```html
 <div id="myChart"></div>
-
+```
 
 //Add a script right above the closing <body> Element/Tag:
 
+```html
 <script>
   let width = 800;
   let height = 800;
@@ -17,7 +20,7 @@
   var elem = document.getElementById("myChart");
   var canvas = new DivDraw(elem, width, height);
 </script>
-
+```
 
 //You can now add different Object to your canvas:
 
