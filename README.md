@@ -53,6 +53,7 @@ So I decided to write my own "chart" library.
 ```
 
 ### Cou can add a circle/rect which displays some information when hovered:
+You just need to give them the same id.
 
 ```html
 <script>
