@@ -37,6 +37,7 @@ So I decided to write my own "chart" library.
   canvas.rect(300, 400, 10, 20, '#000');
   
   canvas.ellipse(500, 550, 10, 20, 'limegreen');
+  canvas.ellipse(100, 200, 10);
   
   canvas.line(300, 400, 500, 550, 'blue', 3);
   canvas.line(200, 200, 400, 400);
@@ -48,6 +49,18 @@ So I decided to write my own "chart" library.
   canvas.text(600, 300, 'General Kenobi', 'fit-content', 20, 'orange', true);
   
   canvas.clear();
+</script>
+```
+
+### Cou can add a circle which displays some information when hovered:
+
+```html
+<script>
+  canvas.ellipse(100, 100, 10, 10, 'rgba(0,0,0,.5)', 'id-1');
+  canvas.rect(200, 100, 10, 10, 'red', 'rect-id');
+
+  canvas.label(100, 100, 'Visits', 'Visitors: 100', 'id-1', col = 'rgba(0,0,0,.5)');
+  canvas.label(200, 100, 'Visits', 'Visitors: 200', 'rect-id', col = 'red');
 </script>
 ```
 
