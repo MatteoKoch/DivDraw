@@ -132,7 +132,7 @@ class DivDraw {
         }
     }
     
-    label(x, y, head, data, datalabel = '', id, col = 'red', ret = false) {
+    label(x, y, head, data, id, col = 'red', ret = false) {
         var label = document.createElement("div");
         label.style.position = 'absolute';
         let tx = x;
@@ -152,13 +152,12 @@ class DivDraw {
         arrow.style.transform = 'rotate(45deg)';
         arrow.style.background = 'rgba(0,0,0,1)';
         var title = document.createElement("h4");
-        if(datalabel == '') title.innerHTML = head;
-        else title.innerHTML = datalabel;
+        title.innerHTML = head;
         title.style.margin = '0';
-		title.style.color = '#fff';
+	title.style.color = '#fff';
         var dat = document.createElement("span");
         dat.innerHTML = data;
-		dat.style.color = '#fff';
+	dat.style.color = '#fff';
         var legend = document.createElement("span");
         legend.style.display = 'inline-block';
         legend.style.marginRight = '6px';
