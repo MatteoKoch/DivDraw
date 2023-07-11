@@ -4,6 +4,8 @@ DivDraw is a JS library that uses pure HTML elements like `<div>` for drawing on
 I was inspired by [Chart.js](https://github.com/chartjs/Chart.js) and [P5.js](https://github.com/processing/p5.js/).
 So I decided to write my own "chart" library.
 
+# Usage
+
 ### Start by adding the Script in the `<head>` Element:
 
 ```html
