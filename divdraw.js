@@ -64,7 +64,7 @@ class DivDraw {
     
  
     
-    ellipse(x, y, w, h, col = 'red', hoverid = false, ret = false) {
+    ellipse(x, y, w, h = w, col = 'red', hoverid = false, ret = false) {
         var kreis = document.createElement("div");
         kreis.style.position = 'absolute';
         kreis.style.left = `${x-(w/2)}px`;
