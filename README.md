@@ -52,7 +52,7 @@ So I decided to write my own "chart" library.
 </script>
 ```
 
-### Cou can add a circle which displays some information when hovered:
+### Cou can add a circle/rect which displays some information when hovered:
 
 ```html
 <script>
