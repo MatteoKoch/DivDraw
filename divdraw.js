@@ -345,3 +345,7 @@ class DivDraw {
     }
     
 }
+
+function map(val, lower, upper, tolower, toupper) {
+    return ((Math.abs(lower - val) / (upper - lower)) * Math.abs(toupper - tolower)) + tolower;
+}
