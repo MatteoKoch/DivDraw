@@ -22,7 +22,7 @@
 </script>
 ```
 
-### You can now add different Object to your canvas:
+### You can now add different Objects to your canvas:
 
 ```html
 <script>
