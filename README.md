@@ -59,8 +59,8 @@ So I decided to write my own "chart" library.
   canvas.ellipse(100, 100, 10, 10, 'rgba(0,0,0,.5)', 'id-1');
   canvas.rect(200, 100, 10, 10, 'red', 'rect-id');
 
-  canvas.label(100, 100, 'Visits', 'Visitors: 100', 'id-1', col = 'rgba(0,0,0,.5)');
-  canvas.label(200, 100, 'Visits', 'Visitors: 200', 'rect-id', col = 'red');
+  canvas.label(100, 100, 'Visits', 'Visitors: 100', 'id-1', 'rgba(0,0,0,.5)');
+  canvas.label(200, 100, 'Visits', 'Visitors: 200', 'rect-id', 'red');
 </script>
 ```
 
