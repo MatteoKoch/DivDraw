@@ -1,4 +1,4 @@
-//Start by adding the Script in the <head> Element:
+//Start by adding the Script in the `<head>` Element:
 
 ```html
 <script src="DivDraw/divdraw.js"></script>
@@ -24,6 +24,7 @@
 
 //You can now add different Object to your canvas:
 
+```html
 <script>
   canvas.rect(300, 400, 10, 20, '#000');
   
@@ -40,13 +41,15 @@
   
   canvas.clear();
 </script>
-
+```
 
 //But you can also create Charts (Bar & Line):
 
+```html
 <script>
   let description = '{"type": "line","label": "Coffees per day","color": "rgb(0, 173, 255)","stroke": 8,"lineColor": "rgb(0, 173, 255)","lineStroke": 2,"fill": "rgba(0, 173, 255, .1)","labels": ["22.05", "23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"], "data": [8, 4, 5.5, 7, 9, 2, 2, 5],"dataLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}';
   let description2 = '{"type": "bar","label": "Litres of water per day","color": "blue","labels": ["22.05", "23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"], "data": [2.5, 3, 2.4, 2.1, 1.9, 2.5, 2.8, 3.4],"dataLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}';               
 
   canvas.graph(description, description2);
 </script>
+```
