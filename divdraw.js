@@ -347,5 +347,12 @@ class DivDraw {
 }
 
 function map(val, lower, upper, tolower, toupper) {
-    return ((Math.abs(lower - val) / (upper - lower)) * Math.abs(toupper - tolower)) + tolower;
+    let mapped;
+    if(tolower > toupper) {
+        mapped = ((Math.abs(lower - val) / (upper - lower)) * Math.abs(tolower - toupper)) + toupper;
+        mapped = tolower - mapped;
+    } else {
+        mapped = ((Math.abs(lower - val) / (upper - lower)) * Math.abs(toupper - tolower)) + tolower;
+    }
+    return mapped;
 }
