@@ -58,8 +58,8 @@ And to be safe, add the `defer` Attribute to the script-tag to make sure that th
 </script>
 ```
 
-### Cou can add a circle/rect which displays some information when hovered:
-You just need to give them the same id.
+### Cou can add circles/rectangles which display some information when hovered:
+You just need to give them the same id as the label.
 
 ```html
 <script>
