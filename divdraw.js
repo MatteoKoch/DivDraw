@@ -141,7 +141,7 @@ class DivDraw {
         label.style.padding = '5px 10px';
         label.style.borderRadius = '6px';
         label.style.minWidth = '50px';
-        label.style.zIndex = '10';
+        label.style.zIndex = '11';
         label.style.opacity = '0';
         label.style.visibility = 'hidden';
         var arrow = document.createElement("div");
