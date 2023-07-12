@@ -32,7 +32,7 @@ This is going to be your canvas.
   var canvas = new DivDraw(elem, width, height);
 </script>
 ```
-Alternatively you can also add the scripts in a seperate File and include them in the `<head>`. 
+Alternatively you can also add the scripts in a seperate JS file and include them in the `<head>`. 
 The order is important here, so make sure you add the scripts after the DivDraw script-tag.
 And to be safe, add the `defer` Attribute to the script-tag to make sure that the script only execute once the body has fully loaded.
 
