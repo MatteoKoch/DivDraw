@@ -72,7 +72,7 @@ class DivDraw {
         kreis.style.width = `${w}px`;
         kreis.style.height = `${h}px`;
         kreis.style.background = col;
-        kreis.style.zIndex = '9';
+        kreis.style.zIndex = hoverid?'10':'9';
         kreis.style.borderRadius = '50%';
         if(hoverid) {
             kreis.style.cursor = 'pointer';
