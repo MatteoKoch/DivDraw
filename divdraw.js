@@ -39,7 +39,7 @@ class DivDraw {
         pixel.style.height = `${h}px`;    
         pixel.style.background = col;
         if(hoverid) {
-            pixel.style.zIndex = '9';
+            pixel.style.zIndex = '10';
             pixel.style.cursor = 'pointer';
             pixel.addEventListener("mouseover", function(e) {
                 var lab = document.getElementById(hoverid);
