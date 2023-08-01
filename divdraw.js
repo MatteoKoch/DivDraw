@@ -1,5 +1,5 @@
 class DivDraw {
-    
+
     constructor(el, w = 300, h = 300, col = '#f1f1f1') {
         this.elem = el;
         this.width = w;
@@ -7,39 +7,39 @@ class DivDraw {
         this.back = col;
         this.initCanvas();
     }
-    
+
     initCanvas() {
         this.setBackground();
         this.setSize();
         this.initStyle();
     }
-    
+
     initStyle() {
         this.elem.style.position = 'relative';
         this.elem.style.overflow = 'hidden';
     }
-    
+
     setSize(w = this.width, h = this.height) {
         this.elem.style.width = `${w}px`;
         this.elem.style.height = `${h}px`;
         this.elem.setAttribute("width", w);
         this.elem.setAttribute("height", h);
     }
-    
+
     setBackground(col = this.back) {
         this.elem.style.background = col;
     }
-    
+
     rect(x, y, w = 1, h = 1, col = 'red', hoverid = false, ret = false) {
         var pixel = document.createElement("div");
         pixel.style.position = 'absolute';
         pixel.style.left = `${x}px`;
         pixel.style.top = `${y}px`;
         pixel.style.width = `${w}px`;
-        pixel.style.height = `${h}px`;    
+        pixel.style.height = `${h}px`;
         pixel.style.background = col;
         if(hoverid) {
-            pixel.style.zIndex = '10';
+            pixel.style.zIndex = '9';
             pixel.style.cursor = 'pointer';
             pixel.addEventListener("mouseover", function(e) {
                 var lab = document.getElementById(hoverid);
@@ -61,9 +61,9 @@ class DivDraw {
             this.elem.appendChild(pixel);
         }
     }
-    
- 
-    
+
+
+
     ellipse(x, y, w, h = w, col = 'red', hoverid = false, ret = false) {
         var kreis = document.createElement("div");
         kreis.style.position = 'absolute';
@@ -96,7 +96,7 @@ class DivDraw {
             this.elem.appendChild(kreis);
         }
     }
-    
+
     line(x1, y1, x2, y2, col = 'red', stroke = 1, ret = false) {
         let w = Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
         let angle = Math.asin((y2-y1)/w);
@@ -115,7 +115,7 @@ class DivDraw {
             this.elem.appendChild(line);
         }
     }
-    
+
     triangle(x, y, w, h, r, col = 'red', ret = false) {
         var drei = document.createElement("div");
         drei.style.position = 'absolute';
@@ -131,7 +131,7 @@ class DivDraw {
             this.elem.appendChild(drei);
         }
     }
-    
+
     label(x, y, head, data, id, col = 'red', ret = false) {
         var label = document.createElement("div");
         label.style.position = 'absolute';
@@ -141,7 +141,7 @@ class DivDraw {
         label.style.padding = '5px 10px';
         label.style.borderRadius = '6px';
         label.style.minWidth = '50px';
-        label.style.zIndex = '11';
+        label.style.zIndex = '10';
         label.style.opacity = '0';
         label.style.visibility = 'hidden';
         var arrow = document.createElement("div");
@@ -154,10 +154,10 @@ class DivDraw {
         var title = document.createElement("h4");
         title.innerHTML = head;
         title.style.margin = '0';
-	title.style.color = '#fff';
+        title.style.color = '#fff';
         var dat = document.createElement("span");
         dat.innerHTML = data;
-	dat.style.color = '#fff';
+        dat.style.color = '#fff';
         var legend = document.createElement("span");
         legend.style.display = 'inline-block';
         legend.style.marginRight = '6px';
@@ -176,7 +176,7 @@ class DivDraw {
         if(x+label.offsetWidth > this.width) arrow.style.right = '-6px';
         else arrow.style.left = '-6px';
     }
-    
+
     text(x, y, t, breit = 'fit-content', size = 16, col = '#000', bold = false, ret = false) {
         var satz = document.createElement("h3");
         satz.innerHTML = t;
@@ -195,44 +195,39 @@ class DivDraw {
             this.elem.appendChild(satz);
         }
     }
-    
+
     clear() {
-        this.elem.innerHTML = '';
+        this.elem.innerHTML = "";
     }
-    
+
     legend(x, y, t, col, size = 16, ret = false, graphs, index, obj) {
         var legende = document.createElement("div");
         legende.style.cursor = 'pointer';
         var legrect = this.rect(x, y, 20, 14, col, false, true);
         var txt = this.text(x+25, y, t, 'fit-content', 12, '#000', false, true);
-        let str = graphs[index];
-        if(str.includes('dontDraw')) txt.style.textDecoration = 'line-through';
+        if(graphs[index].dontDraw) txt.style.textDecoration = 'line-through';
         legende.appendChild(legrect);
         legende.appendChild(txt);
-        legende.addEventListener("click", function(e) {
+        legende.onclick = (e) => {
             obj.clear();
-            let str = graphs[index];
-            if(str.includes('dontDraw')) {
-                graphs[index] = str.replace(', "dontDraw": true}', '}');
-            } else {
-                graphs[index] = str.replace('}', ', "dontDraw": true}');
-            }
-            obj.graph(graphs[0]!=null?graphs[0]:null, 
-                       graphs[1]!=null?graphs[1]:null,
-                       graphs[2]!=null?graphs[2]:null,
-                       graphs[3]!=null?graphs[3]:null,
-                       graphs[4]!=null?graphs[4]:null,
-                       graphs[5]!=null?graphs[5]:null,
-                       graphs[6]!=null?graphs[6]:null);
-        });
+            if(graphs[index].dontDraw) graphs[index].dontDraw = false;
+            else graphs[index].dontDraw = true;
+            obj.graph(graphs[0]!=null?graphs[0]:null,
+                graphs[1]!=null?graphs[1]:null,
+                graphs[2]!=null?graphs[2]:null,
+                graphs[3]!=null?graphs[3]:null,
+                graphs[4]!=null?graphs[4]:null,
+                graphs[5]!=null?graphs[5]:null,
+                graphs[6]!=null?graphs[6]:null);
+        };
         this.elem.appendChild(legende);
     }
-    
+
     graph() {
-        
+
         if(arguments.length > 7) console.log("Graph(p1, p2,...,p7) cannot have more than 7 Input Parameters!");
         else {
-        
+
             let start = 30;
 
             let breite, teiler;
@@ -240,11 +235,11 @@ class DivDraw {
 
             let arglen = 0;
             for(let k = 0; k < arguments.length; ++k) if(arguments[k] != null) ++arglen;
-            
+
             let maxelem = 0;
             for(let k = 0; k < arguments.length; ++k) {
                 if(arguments[k] != null) {
-                    let grap = JSON.parse(arguments[k]);
+                    let grap = arguments[k];
                     if(Math.max.apply(null, grap.data) > maxelem) maxelem = Math.max.apply(null, grap.data);
 
                     breite = (this.width-start) / grap.data.length;
@@ -257,7 +252,7 @@ class DivDraw {
 
             maxelem = parseInt(maxelem * 1.15);
             while(++maxelem%4 != 0);
-            
+
             let anzmax = (this.height*1.3) / 100;
 
             let anzahlschritte = parseInt(maxelem>=anzmax? anzmax:maxelem)>10? 10:parseInt(maxelem>=anzmax? anzmax:maxelem);
@@ -279,16 +274,16 @@ class DivDraw {
             }
 
             for(let k = 0; k < arguments.length; ++k) {
-                
-                if(arguments[k] != null) {
-                
-                    let graphic = JSON.parse(arguments[k]);
 
-                    if(graphic.type == 'bar' && graphic.dontDraw == null) {
+                if(arguments[k] != null) {
+
+                    let graphic = arguments[k];
+
+                    if(graphic.type == 'bar' && !graphic.dontDraw) {
 
                         let x, y, xn, yn;
 
-                        for(let i = 0; i < graphic.data.length; ++i) {                             
+                        for(let i = 0; i < graphic.data.length; ++i) {
                             x = Math.round(i*breite +start);
                             y = Math.round(graphheight-(graphic.data[i]*graphheight/maxelem));
                             xn = Math.round((i+1)*breite +start);
@@ -299,10 +294,10 @@ class DivDraw {
                             if(i % teiler == 0) {
                                 //labels for the x-axis
                                 this.text(x, graphheight+3, graphic.labels[i], 'fit-content', 12, '#555');
-                            }     
+                            }
                         }
 
-                    } else if(graphic.type = 'line' && graphic.dontDraw == null) {
+                    } else if(graphic.type == 'line' && !graphic.dontDraw) {
 
                         let x, y, xn, yn;
 
@@ -318,7 +313,7 @@ class DivDraw {
                                 if(graphic.fill != null) {
                                     if(y > yn) {
                                         this.rect(x, y, xn-x, graphheight-y, graphic.fill);
-                                        this.triangle(x, y, xn-x, y-yn, 1, graphic.fill);                            
+                                        this.triangle(x, y, xn-x, y-yn, 1, graphic.fill);
                                     } else if (yn > y) {
                                         this.rect(x, yn, xn-x, graphheight-yn, graphic.fill);
                                         this.triangle(x, yn, xn-x, yn-y, -1, graphic.fill);
@@ -330,7 +325,7 @@ class DivDraw {
                             }
                             //drawing the points
                             this.ellipse(x, y, graphic.stroke, graphic.stroke, graphic.color, `${k}${i}`);
-                            this.label(x+12, y-20, graphic.labels[i], graphic.label+': '+graphic.data[i], `${k}${i}`, graphic.color);
+                            this.label(x+12, y-20, graphic.labels[i], graphic.label+': '+graphic.data[i],`${k}${i}`, graphic.color);
                             if(i % teiler == 0) {
                                 //labels for the x-axis
                                 this.text(x, graphheight+3, graphic.labels[i], 'fit-content', 12, '#555');
@@ -342,7 +337,7 @@ class DivDraw {
             }
         }
     }
-    
+
 }
 
 function map(val, lower, upper, tolower, toupper) {
