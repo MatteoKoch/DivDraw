@@ -75,8 +75,27 @@ You just need to give them the same id as the label.
 
 ```html
 <script>
-  let description = '{"type": "line","label": "Coffees per day","color": "rgb(0, 173, 255)","stroke": 8,"lineColor": "rgb(0, 173, 255)","lineStroke": 2,"fill": "rgba(0, 173, 255, .1)","labels": ["22.05", "23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"], "data": [8, 4, 5.5, 7, 9, 2, 2, 5],"dataLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}';
-  let description2 = '{"type": "bar","label": "Litres of water per day","color": "blue","labels": ["22.05", "23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"], "data": [2.5, 3, 2.4, 2.1, 1.9, 2.5, 2.8, 3.4],"dataLabels": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]}';               
+  let description = {
+    type: "line",
+    label: "Coffees per day",
+    color: "rgb(0, 173, 255)",
+    stroke: 8,
+    lineColor: "rgb(0, 173, 255)",
+    lineStroke: 2,
+    fill: "rgba(0, 173, 255, .1)",
+    labels: ["22.05", "23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"],
+    data: [8, 4, 5.5, 7, 9, 2, 2, 5],
+    dataLabels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+  };
+  
+  let description2 = {
+    type: "bar",
+    label: "Litres of water per day",
+    color: "blue",
+    labels: ["22.05", "23.05", "24.05", "25.05", "26.05", "27.05", "28.05", "29.05"],
+    data: [2.5, 3, 2.4, 2.1, 1.9, 2.5, 2.8, 3.4],
+    dataLabels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+  };               
 
   canvas.graph(description, description2);
 </script>
