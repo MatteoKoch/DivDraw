@@ -1,11 +1,17 @@
 class DivDraw {
 
-    constructor(el, w = 300, h = 300, col = '#f1f1f1') {
+    constructor(el, w = 300, h = 300, col = '#f1f1f1', g = false) {
         this.elem = el;
         this.width = w;
         this.height = h;
         this.back = col;
+        this.game = g;
+        this.ms = 100;
+        this.loop = false;
         this.initCanvas();
+        if(this.game) {
+            this.initGame();
+        }
     }
 
     initCanvas() {
@@ -19,6 +25,28 @@ class DivDraw {
         this.elem.style.overflow = 'hidden';
     }
 
+    initGame() {
+        this.loop = true;
+        this.loopFn();
+    }
+
+    loopFn() {
+        this.draw();
+        if(this.loop) {
+            setTimeout(this.loopFn.bind(this), this.ms);
+        }
+    }
+
+    draw() {}
+
+    stop() {
+        this.loop = false;
+    }
+
+    resume() {
+        this.initGame();
+    }
+
     setSize(w = this.width, h = this.height) {
         this.elem.style.width = `${w}px`;
         this.elem.style.height = `${h}px`;
@@ -28,6 +56,10 @@ class DivDraw {
 
     setBackground(col = this.back) {
         this.elem.style.background = col;
+    }
+
+    setFPS(frames) {
+        this.ms = 1000/frames;
     }
 
     rect(x, y, w = 1, h = 1, col = 'red', hoverid = false, ret = false) {
