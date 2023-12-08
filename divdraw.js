@@ -57,9 +57,34 @@ class DivDraw {
     setBackground(col = this.back) {
         this.elem.style.background = col;
     }
+    
+    setBackgroundImage(src, size = 'cover', pos_x = 'center', pos_y = 'center') {
+        this.elem.style.backgroundImage = `url('${src}')`;
+        this.elem.style.backgroundSize = size;
+        this.elem.style.backgroundPositionX = pos_x;
+        this.elem.style.backgroundPositionY = pos_y;
+    }
 
     setFPS(frames) {
         this.ms = 1000/frames;
+    }
+
+    rotate(elem, deg) {
+        elem.style.transform = `rotate(${deg}deg)`;
+    }
+
+    img(x, y, src, w = false, h = false, ret = false) {
+        var image = document.createElement("img");
+        image.style.position = 'absolute';
+        image.src = src;
+        image.style.left = `${x}px`;
+        image.style.top = `${y}px`;
+        if(w) image.style.width = `${w}px`;
+        if(h) image.style.height = `${h}px`;
+        this.elem.appendChild(image);
+        if(ret) {
+            return image;
+        }
     }
 
     rect(x, y, w = 1, h = 1, col = 'red', hoverid = false, ret = false) {
