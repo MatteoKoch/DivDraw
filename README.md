@@ -75,7 +75,7 @@ You just need to give them the same id as the label.
 
 ```html
 <script>
-  let description = {
+  let lineChart = {
     type: "line",
     label: "Coffees per day",
     color: "rgb(0, 173, 255)",
@@ -88,7 +88,7 @@ You just need to give them the same id as the label.
     dataLabels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   };
   
-  let description2 = {
+  let barChart = {
     type: "bar",
     label: "Litres of water per day",
     color: "blue",
@@ -97,6 +97,6 @@ You just need to give them the same id as the label.
     dataLabels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   };               
 
-  canvas.graph(description, description2);
+  canvas.graph(lineChart, barChart);
 </script>
 ```
